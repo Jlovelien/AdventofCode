@@ -24,13 +24,44 @@ def increment_xy(data):
     
     return wPlot
 
+def walk_through(intercept):
+    paths = read_paths()
+    path1 = increment_xy(paths[0])
+    path2 = increment_xy(paths[1])
+    steps = 0
+    for point in path1:
+        if point == intercept:
+            
+            for point2 in path2:
+                if point2 == intercept:
+                    
+                    return steps
+                else:  
+                    steps +=1       
+        else:
+            steps +=1
+
+        
+        
+
+
+    
+
 def navigate(paths):
-    print(paths)
     w1Plot = increment_xy(paths[0])
     w2Plot = increment_xy(paths[1])
+    
     intercepts = list(set(w1Plot).intersection(set(w2Plot)))
+
+    
+    
+    sums = map(walk_through,intercepts)
+
+    s = sorted(sums)
+    print("Part 2:", s[1])
+
     abs_intercepts = [(abs(i[0]), abs(i[1])) for i in intercepts]
 
-    print(min([sum(i) for i in abs_intercepts if sum(i) > 0]))
+    print("Part 1:", min([sum(i) for i in abs_intercepts if sum(i) > 0]))
 
 navigate(read_paths())
