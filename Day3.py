@@ -52,9 +52,6 @@ def navigate(paths):
     w2Plot = increment_xy(paths[1])
     
     intercepts = list(set(w1Plot).intersection(set(w2Plot)))
-
-    
-    
     sums = map(walk_through,intercepts)
 
     s = sorted(sums)
