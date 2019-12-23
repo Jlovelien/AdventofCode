@@ -1,6 +1,14 @@
 def has_dup(number):
+    dups = []
+    
     for x in range(0,5):
+        tup = ()
         if number[x] == number[x+1]:
+            tup = (number[x],x)
+            dups.append(tup)
+
+            
+                   
             return True
     return False
 
@@ -11,8 +19,8 @@ def has_not_dec(number):
             
     return True
 
-min = 109165
-max = 576723
+min = 111111
+max = 111411
 
 count = 0
 for num in range(min,max):
